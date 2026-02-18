@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Business Managers' Association | New Zealand</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A3D62;
+            --primary-light: #1A5276;
+            --accent: #E8B86D;
+            --accent-dark: #D4A055;
+            --text: #1a1a1a;
+            --text-light: #555;
+            --bg: #FAFBFC;
+            --bg-cream: #F8F6F2;
+            --bg-dark: #0A2540;
+            --card-bg: #ffffff;
+            --border: #e8e8e8;
+            --shadow: 0 4px 24px rgba(10, 37, 64, 0.08);
+            --shadow-lg: 0 12px 48px rgba(10, 37, 64, 0.12);
+            --radius: 16px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Instrument Serif', serif;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .logo img {
+            height: 48px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--bg-cream);
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-light) !important;
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text);
+            margin: 6px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 80px;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-cream) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse at center, rgba(232, 184, 109, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--bg), transparent);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            color: var(--primary);
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 em {
+            color: var(--accent-dark);
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 540px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 48px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .hero-stat-number {
+            font-family: 'Instrument Serif', serif;
+            font-size: 4rem;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            color: var(--text-light);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .hero-feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-cream);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        /* Sponsors Strip */
+        .sponsors-strip {
+            background: white;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .sponsors-strip p {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+
+        .sponsors-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .sponsors-logos img {
+            height: 40px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .sponsors-logos img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 120px 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--accent-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-description {
+            color: var(--text-light);
+            font-size: 1.15rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-cream);
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-values {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .value-item {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow);
+        }
+
+        .value-item h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .value-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-main {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* President Section */
+        .president {
+            background: white;
+        }
+
+        .president-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .president-card {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: start;
+            background: var(--bg-cream);
+            padding: 60px;
+            border-radius: var(--radius);
+        }
+
+        .president-image {
+            position: relative;
+        }
+
+        .president-image img {
+            width: 100%;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow);
+        }
+
+        .president-role {
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .president-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .president-name {
+            color: var(--accent-dark);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .president-content p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        /* Membership Section */
+        .membership {
+            background: var(--bg-dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membership::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(ellipse at right, rgba(232, 184, 109, 0.1) 0%, transparent 70%);
+        }
+
+        .membership .section-label {
+            color: var(--accent);
+        }
+
+        .membership .section-title {
+            color: white;
+        }
+
+        .membership .section-description {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .membership-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .membership-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .membership-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-8px);
+        }
+
+        .membership-card.featured {
+            background: white;
+            color: var(--text);
+            transform: scale(1.05);
+        }
+
+        .membership-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .membership-type {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .membership-card.featured .membership-type {
+            color: var(--primary);
+        }
+
+        .membership-price {
+            font-family: 'Instrument Serif', serif;
+            font-size: 3rem;
+            margin-bottom: 8px;
+        }
+
+        .membership-price span {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .membership-description {
+            opacity: 0.8;
+            margin-bottom: 32px;
+            min-height: 80px;
+        }
+
+        .membership-card.featured .membership-description {
+            color: var(--text-light);
+        }
+
+        .membership-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .membership-features li {
+            padding: 12px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .membership-card.featured .membership-features li {
+            border-color: var(--border);
+        }
+
+        .membership-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .membership-card.featured .membership-features li::before {
+            color: var(--primary);
+        }
+
+        .btn-membership {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .membership-card:not(.featured) .btn-membership {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .membership-card:not(.featured) .btn-membership:hover {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        /* Team Section */
+        .team {
+            background: white;
+        }
+
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .team-group {
+            margin-bottom: 80px;
+        }
+
+        .team-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .team-group-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .team-grid.executives {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+            background: var(--bg);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid white;
+            box-shadow: var(--shadow);
+        }
+
+        .team-card h4 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .team-card .role {
+            color: var(--accent-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+
+        .team-card .school {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .team-card .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 100px;
+            transition: all 0.2s ease;
+        }
+
+        .team-card .contact-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Conference Section */
+        .conference {
+            background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg) 100%);
+        }
+
+        .conference-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .conference-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .conference-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .conference-image img {
+            width: 100%;
+            display: block;
+        }
+
+        .conference-info h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .conference-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .conference-venue {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        .conference-pricing {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 24px;
+        }
+
+        .conference-pricing h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .conference-pricing p {
+            color: var(--text-light);
+            margin: 8px 0;
+        }
+
+        /* Regional Meetings */
+        .regional-meetings {
+            background: white;
+            padding: 60px;
+            border-radius: var(--radius);
+        }
+
+        .regional-meetings h3 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 48px;
+        }
+
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .region-card {
+            background: var(--bg);
+            padding: 24px;
+            border-radius: var(--radius-sm);
+            border-left: 4px solid var(--accent);
+        }
+
+        .region-card h4 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .region-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* Sponsors Section */
+        .sponsors {
+            background: white;
+        }
+
+        .sponsors-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sponsors-tier {
+            margin-bottom: 60px;
+        }
+
+        .sponsors-tier:last-child {
+            margin-bottom: 0;
+        }
+
+        .sponsors-tier h3 {
+            text-align: center;
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .sponsors-tier h3::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 16px auto 0;
+            border-radius: 2px;
+        }
+
+        .sponsors-tier.gold h3::after {
+            background: #D4AF37;
+        }
+
+        .sponsors-tier.silver h3::after {
+            background: #C0C0C0;
+        }
+
+        .sponsors-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+
+        .sponsor-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 32px;
+            background: var(--bg);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+        }
+
+        .sponsor-logo:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow);
+        }
+
+        .sponsor-logo img {
+            max-height: 50px;
+            max-width: 180px;
+        }
+
+        /* Life Members */
+        .life-members {
+            background: var(--bg-cream);
+        }
+
+        .life-members-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .life-members-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .life-member {
+            background: white;
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .life-member-year {
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .life-member-name {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .life-member-location {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-dark);
+            color: white;
+        }
+
+        .contact .section-label {
+            color: var(--accent);
+        }
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-list .role {
+            color: var(--accent);
+            font-weight: 600;
+            min-width: 150px;
+        }
+
+        .contact-list a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s ease;
+        }
+
+        .contact-list a:hover {
+            opacity: 1;
+        }
+
+        .contact-address {
+            margin-top: 40px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-sm);
+        }
+
+        .contact-address h4 {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .contact-address p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 48px;
+            border-radius: var(--radius);
+        }
+
+        .contact-form h3 {
+            color: var(--primary);
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+        }
+
+        /* Footer */
+        footer {
+            background: #061425;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .hero-visual {
+                order: 1;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-grid,
+            .conference-hero,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .membership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .membership-card.featured {
+                transform: none;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .regions-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .president-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            section {
+                padding: 80px 24px;
+            }
+
+            .hero {
+                padding: 100px 24px 60px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .regions-grid,
+            .life-members-list {
+                grid-template-columns: 1fr;
+            }
+
+            .sponsors-logos {
+                gap: 24px;
+            }
+
+            .sponsors-logos img {
+                height: 30px;
+            }
+
+            .footer-top,
+            .footer-bottom {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth scroll offset for fixed nav */
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://sbm.org.nz/wp-content/themes/sbma/images/logo.svg" alt="SBM Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#team">Our People</a></li>
+                <li><a href="#conference">Conference</a></li>
+                <li><a href="#sponsors">Partners</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#membership" class="nav-cta">Join Now</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">Professional Association for NZ Schools</div>
+                <h1>The professional body of choice for <em>school business leaders</em></h1>
+                <p class="hero-description">The School Business Managers' Association is the only independent membership organisation representing school business managers across New Zealand, from the far north to the deep south.</p>
+                <div class="hero-buttons">
+                    <a href="#membership" class="btn btn-primary">Become a Member →</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">30+</div>
+                        <div class="hero-stat-label">Years supporting NZ schools</div>
+                    </div>
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <span>National Network</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            </div>
+                            <span>Professional Development</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            </div>
+                            <span>Annual Conference</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <span>Sector Advocacy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Strip -->
+    <div class="sponsors-strip">
+        <p>Proudly supported by</p>
+        <div class="sponsors-logos">
+            <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-platinum-fujifilm.svg" alt="FUJIFILM">
+            <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-gold-1.png" alt="Furnware">
+            <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-gold-2.png" alt="OfficeMax">
+            <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-gold-3.png" alt="Programmed">
+            <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-gold-4.png" alt="ASB">
+            <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-new-era.jpg" alt="New Era Technology">
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-grid">
+                <div class="about-content fade-in">
+                    <span class="section-label">About Us</span>
+                    <h2>Supporting school business excellence since 1993</h2>
+                    <p>The School Business Managers' Association (SBM) is the only membership organisation representing school business managers in New Zealand. Our members come from schools that teach New Entrants through to Year 13 students.</p>
+                    <p>The Education Sector is constantly being reviewed and change is inevitable. As a member of the SBM Executive, a big part of our job is to ensure our members are kept informed and up-to-date with these changes.</p>
+                    <div class="about-values">
+                        <div class="value-item">
+                            <h4>Mission</h4>
+                            <p>To be a sustainable organisation with visibility, relevance, and influence.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Vision</h4>
+                            <p>To be the professional body of choice for school business leaders.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Leadership</h4>
+                            <p>Commitment to leadership development across all regions.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Advocacy</h4>
+                            <p>Representation on numerous Sector Groups in NZ and worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://sbm.org.nz/wp-content/uploads/2022/12/values.png" alt="SBM Values" class="about-image-main">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- President's Welcome -->
+    <section class="president" id="president">
+        <div class="president-container">
+            <div class="section-header">
+                <span class="section-label">Welcome</span>
+                <h2 class="section-title">A message from our President</h2>
+            </div>
+            <div class="president-card fade-in">
+                <div class="president-image">
+                    <img src="https://sbm.org.nz/wp-content/uploads/2025/09/CE-pres-msg-website.png" alt="Cheryl English">
+                    <span class="president-role">Acting President</span>
+                </div>
+                <div class="president-content">
+                    <h3>A warm welcome to the School Business Managers' Association!</h3>
+                    <p class="president-name">Cheryl English</p>
+                    <p>The SBM Association is the only independent organisation representing the interests of School Business Managers in NZ.</p>
+                    <p>The SBM offers many great benefits to our members including networking opportunities with like-minded colleagues, regular professional development on a regional level, and a fantastic annual conference with amazing sponsors.</p>
+                    <p>We also have representation on numerous Sector Groups both within New Zealand and around the world.</p>
+                    <p>If you are looking for an organisation whose strategic goals focus on a commitment to leadership development, ongoing professional learning, membership engagement and advocating on your behalf, then I urge you to join.</p>
+                    <a href="#membership" class="btn btn-primary" style="margin-top: 24px;">Learn About Membership →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section class="membership" id="membership">
+        <div class="membership-container">
+            <div class="section-header">
+                <span class="section-label">Membership</span>
+                <h2 class="section-title">Join our professional community</h2>
+                <p class="section-description">Membership is open to school business managers across New Zealand. Choose the option that best fits your role and school.</p>
+            </div>
+            <div class="membership-grid">
+                <div class="membership-card fade-in">
+                    <div class="membership-type">Associate</div>
+                    <div class="membership-price">$250<span>+GST/year</span></div>
+                    <p class="membership-description">For those who carry out business management duties part of the time.</p>
+                    <ul class="membership-features">
+                        <li>Regional meeting access</li>
+                        <li>Member communications</li>
+                        <li>Conference discounts</li>
+                        <li>Networking opportunities</li>
+                    </ul>
+                    <a href="https://sbm.org.nz/membership-form/" class="btn btn-membership">Apply Now</a>
+                </div>
+                <div class="membership-card featured fade-in">
+                    <div class="membership-type">Full Membership</div>
+                    <div class="membership-price">$300<span>+GST/year</span></div>
+                    <p class="membership-description">For school employees responsible for Finance, Property, or HR management most of the time.</p>
+                    <ul class="membership-features">
+                        <li>Full voting rights</li>
+                        <li>Regional meeting access</li>
+                        <li>Conference subsidies available</li>
+                        <li>Professional development</li>
+                        <li>Networking & advocacy</li>
+                    </ul>
+                    <a href="https://sbm.org.nz/membership-form/" class="btn btn-primary btn-membership">Apply Now</a>
+                </div>
+                <div class="membership-card fade-in">
+                    <div class="membership-type">Group</div>
+                    <div class="membership-price">$550<span>+GST/year</span></div>
+                    <p class="membership-description">For schools with two or more eligible members. Best value for larger teams.</p>
+                    <ul class="membership-features">
+                        <li>Multiple memberships</li>
+                        <li>All full member benefits</li>
+                        <li>Team networking</li>
+                        <li>Cost savings</li>
+                    </ul>
+                    <a href="mailto:admin@sbm.org.nz" class="btn btn-membership">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="team-container">
+            <div class="section-header">
+                <span class="section-label">Our People</span>
+                <h2 class="section-title">Leadership you can count on</h2>
+                <p class="section-description">The SBM leadership team consists of 4 National Executive Committee officers and 9 Regional Delegates located throughout New Zealand.</p>
+            </div>
+
+            <div class="team-group">
+                <h3 class="team-group-title">National Executive Committee</h3>
+                <div class="team-grid executives">
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Cheryl.jpg" alt="Cheryl English">
+                        <h4>Cheryl English</h4>
+                        <div class="role">Acting President</div>
+                        <div class="school">Shirley Boys' High School & Avonside Girls' High School</div>
+                        <a href="mailto:president@sbm.org.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Steph.jpg" alt="Steph Elder">
+                        <h4>Steph Elder</h4>
+                        <div class="role">Vice President</div>
+                        <div class="school">Howick Intermediate School, Auckland</div>
+                        <a href="mailto:vp@sbm.org.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Rochelle.jpg" alt="Rochelle Pikaahu">
+                        <h4>Rochelle Pikaahu</h4>
+                        <div class="role">Secretary</div>
+                        <div class="school">Kedgley Intermediate School, Auckland</div>
+                        <a href="mailto:secretary@sbm.org.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Leanne.jpg" alt="Leanne Reynolds">
+                        <h4>Leanne Reynolds</h4>
+                        <div class="role">Treasurer</div>
+                        <div class="school">Rototuna High School, Hamilton</div>
+                        <a href="mailto:treasurer@sbm.org.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-group">
+                <h3 class="team-group-title">Regional Delegates</h3>
+                <div class="team-grid">
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Lisa.jpg" alt="Lisa Baker">
+                        <h4>Lisa Baker</h4>
+                        <div class="role">Northland</div>
+                        <div class="school">Taipa Area School</div>
+                        <a href="mailto:lisab@taipa.school.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Rudra.jpg" alt="Rudra Pradeep">
+                        <h4>Rudra Pradeep</h4>
+                        <div class="role">Waikato</div>
+                        <div class="school">Hamilton Boys' High School</div>
+                        <a href="mailto:rpradeep@hbhs.school.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Rachel.jpg" alt="Rachel Armishaw">
+                        <h4>Rachel Armishaw</h4>
+                        <div class="role">Bay of Plenty</div>
+                        <div class="school">Mount Maunganui College</div>
+                        <a href="mailto:rachela@mmc.school.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Mandy.jpg" alt="Mandy Steininger">
+                        <h4>Mandy Steininger</h4>
+                        <div class="role">Central</div>
+                        <div class="school">Napier Boys' High School</div>
+                        <a href="mailto:MSteininger@nbhs.school.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Susan.jpg" alt="Susan Quinn">
+                        <h4>Susan Quinn</h4>
+                        <div class="role">Wellington</div>
+                        <div class="school">Wellington College</div>
+                        <a href="mailto:s.quinn@wc.school.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Tina.jpg" alt="Tina van Dijk">
+                        <h4>Tina van Dijk</h4>
+                        <div class="role">Tasman</div>
+                        <div class="school">Nelson College</div>
+                        <a href="mailto:tv@nelson.school.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Cherie1.jpg" alt="Cherie Butcher">
+                        <h4>Cherie Butcher</h4>
+                        <div class="role">Canterbury</div>
+                        <div class="school">Hillmorton High School</div>
+                        <a href="mailto:butcherc@hillmorton.school.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                    <div class="team-card fade-in">
+                        <img src="https://sbm.org.nz/wp-content/uploads/2025/07/Claudia.jpg" alt="Claudia Huia">
+                        <h4>Claudia Huia</h4>
+                        <div class="role">Otago / Southland</div>
+                        <div class="school">Southland Girls' High School</div>
+                        <a href="mailto:claudia.huia@southlandgirls.school.nz" class="contact-btn">✉ Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conference Section -->
+    <section class="conference" id="conference">
+        <div class="conference-container">
+            <div class="section-header">
+                <span class="section-label">Conference 2026</span>
+                <h2 class="section-title">Wellington awaits</h2>
+                <p class="section-description">Join us for professional development, networking, and inspiration at New Zealand's premier school business management conference.</p>
+            </div>
+
+            <div class="conference-hero fade-in">
+                <div class="conference-image">
+                    <img src="https://sbm.org.nz/wp-content/uploads/2025/07/artwork.png" alt="SBM Conference 2026">
+                </div>
+                <div class="conference-info">
+                    <div class="conference-date">📅 15 - 17 July 2026</div>
+                    <h3>Tākina Convention and Exhibition Centre</h3>
+                    <p class="conference-venue">Wellington's world-class venue provides the perfect setting for three days of learning, connecting, and growing together.</p>
+                    
+                    <div class="conference-pricing">
+                        <h4>Registration Fees</h4>
+                        <p><strong>SBM Members:</strong> Discounted rates available</p>
+                        <p><strong>Non-members:</strong> $1,300 + GST</p>
+                        <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-light);">Registrations open early 2026. Conference subsidies up to $1,200 (excl GST) available for financial members.</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <a href="http://www.sbmconference.org.nz/" class="btn btn-primary" target="_blank">Visit Conference Website →</a>
+                        <a href="https://sbm.org.nz/wp-content/uploads/2025/11/Conference-Subsidy-Application.pdf" class="btn btn-secondary" target="_blank">Subsidy Application</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="regional-meetings fade-in">
+                <h3>2026 Regional Meeting Dates</h3>
+                <div class="regions-grid">
+                    <div class="region-card">
+                        <h4>Northland</h4>
+                        <p>Term 1: Thu 5 March<br>Term 2: Wed 17 June<br>Term 3: Thu 20 August<br>Term 4: Thu 12 November</p>
+                    </div>
+                    <div class="region-card">
+                        <h4>Auckland</h4>
+                        <p>Term 1: Wed 11 March<br>Term 2: Wed 17 June<br>Term 3: Thu 17 Sept<br>Term 4: Thu 26 Nov</p>
+                    </div>
+                    <div class="region-card">
+                        <h4>Bay of Plenty</h4>
+                        <p>Term 1: Wed 11 March<br>Term 2: Wed 17 June<br>Term 3: Wed 16 Sept<br>Term 4: Wed 4 Nov</p>
+                    </div>
+                    <div class="region-card">
+                        <h4>Waikato</h4>
+                        <p>Term 1: Thu 5 March<br>Term 2: Wed 17 June<br>Term 3: Thu 17 Sept<br>Term 4: Thu 26 Nov</p>
+                    </div>
+                    <div class="region-card">
+                        <h4>Central</h4>
+                        <p>Term 1: Mon 9 March<br>Term 2: Wed 17 June<br>Term 3: Tue 18 August<br>Term 4: Thu 22 October</p>
+                    </div>
+                    <div class="region-card">
+                        <h4>Wellington</h4>
+                        <p>Term 1: Fri 20 March<br>Term 2: Wed 17 June<br>Term 3: Wed 9 Sept<br>Term 4: Wed 18 Nov</p>
+                    </div>
+                    <div class="region-card">
+                        <h4>Tasman</h4>
+                        <p>Term 1: Fri 13 March<br>Term 2: Fri 15 May<br>AGM: Tue 30 June<br>Term 3: Fri 21 August<br>Term 4: Fri 27 Nov</p>
+                    </div>
+                    <div class="region-card">
+                        <h4>Canterbury</h4>
+                        <p>Term 1: Fri 6 March<br>Term 2: Wed 17 June<br>Term 3: Fri 21 August<br>Term 4: Fri 16 October</p>
+                    </div>
+                    <div class="region-card">
+                        <h4>Otago Southland</h4>
+                        <p>Term 1: Mon 16 March<br>Term 2: Wed 17 June<br>Term 3: Fri 21 August<br>Term 4: Fri 20 Nov</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section class="sponsors" id="sponsors">
+        <div class="sponsors-container">
+            <div class="section-header">
+                <span class="section-label">Partners & Sponsors</span>
+                <h2 class="section-title">Our valued supporters</h2>
+                <p class="section-description">We're grateful to our partners and sponsors who generously support our annual conference and day-to-day operations.</p>
+            </div>
+
+            <div class="sponsors-tier gold fade-in">
+                <h3>Gold Partners</h3>
+                <div class="sponsors-grid">
+                    <a href="https://www.fujifilm.com/fbnz/en" class="sponsor-logo" target="_blank">
+                        <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-platinum-fujifilm.svg" alt="FUJIFILM">
+                    </a>
+                    <a href="https://www.furnware.co.nz/" class="sponsor-logo" target="_blank">
+                        <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-gold-1.png" alt="Furnware">
+                    </a>
+                    <a href="https://www.officemax.co.nz/" class="sponsor-logo" target="_blank">
+                        <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-gold-2.png" alt="OfficeMax">
+                    </a>
+                    <a href="https://programmed.co.nz/" class="sponsor-logo" target="_blank">
+                        <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-gold-3.png" alt="Programmed">
+                    </a>
+                    <a href="https://www.asb.co.nz/" class="sponsor-logo" target="_blank">
+                        <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-gold-4.png" alt="ASB">
+                    </a>
+                    <a href="https://www.newerait.co.nz/" class="sponsor-logo" target="_blank">
+                        <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-new-era.jpg" alt="New Era Technology">
+                    </a>
+                </div>
+            </div>
+
+            <div class="sponsors-tier silver fade-in">
+                <h3>Silver Sponsors</h3>
+                <div class="sponsors-grid">
+                    <a href="https://www.uniformgroup.co.nz" class="sponsor-logo" target="_blank">
+                        <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-silver-3.png" alt="Uniform Group">
+                    </a>
+                    <a href="https://kindo.co.nz/" class="sponsor-logo" target="_blank">
+                        <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-silver-5.png" alt="Kindo">
+                    </a>
+                    <a href="https://www.alsco.co.nz/" class="sponsor-logo" target="_blank">
+                        <img src="https://sbm.org.nz/wp-content/themes/sbma/images/sponsor-alsco.svg" alt="Alsco">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Life Members -->
+    <section class="life-members">
+        <div class="life-members-container">
+            <div class="section-header">
+                <span class="section-label">Honoured Members</span>
+                <h2 class="section-title">Life Members</h2>
+                <p class="section-description">Life membership has been conferred for outstanding services to the Association. We are honoured to have them as part of our community.</p>
+            </div>
+            <div class="life-members-list">
+                <div class="life-member fade-in"><span class="life-member-year">2000</span><div><div class="life-member-name">Phiona Wilson</div><div class="life-member-location">Whangarei</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2005</span><div><div class="life-member-name">Maree Goldie</div><div class="life-member-location">Auckland</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2008</span><div><div class="life-member-name">Atholl Leask</div><div class="life-member-location">Palmerston North</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2010</span><div><div class="life-member-name">Janet Danks</div><div class="life-member-location">Auckland</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2012</span><div><div class="life-member-name">Dennis Rea</div><div class="life-member-location">Christchurch</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2015</span><div><div class="life-member-name">Diana Blair</div><div class="life-member-location">New Plymouth</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2015</span><div><div class="life-member-name">Chris Johnston</div><div class="life-member-location">Auckland</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2015</span><div><div class="life-member-name">Val Wenham</div><div class="life-member-location">Hamilton</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2018</span><div><div class="life-member-name">Adele Seekup</div><div class="life-member-location">Wellington</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2022</span><div><div class="life-member-name">Nawa Ruckes</div><div class="life-member-location">Rotorua</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2024</span><div><div class="life-member-name">Wendy Bulloch</div><div class="life-member-location">Waikato</div></div></div>
+                <div class="life-member fade-in"><span class="life-member-year">2025</span><div><div class="life-member-name">Denise Bellette</div><div class="life-member-location">Auckland</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="section-header">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">We're here to help</h2>
+                <p class="section-description" style="color: rgba(255,255,255,0.7);">Have questions about membership, the conference, or anything else? We'd love to hear from you.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>Contact Details</h3>
+                    <ul class="contact-list">
+                        <li><span class="role">President</span><a href="mailto:president@sbm.org.nz">president@sbm.org.nz</a></li>
+                        <li><span class="role">Vice President</span><a href="mailto:vp@sbm.org.nz">vp@sbm.org.nz</a></li>
+                        <li><span class="role">Secretary</span><a href="mailto:secretary@sbm.org.nz">secretary@sbm.org.nz</a></li>
+                        <li><span class="role">Treasurer</span><a href="mailto:treasurer@sbm.org.nz">treasurer@sbm.org.nz</a></li>
+                        <li><span class="role">Business Coordinator</span><a href="mailto:admin@sbm.org.nz">admin@sbm.org.nz</a></li>
+                    </ul>
+                    <div class="contact-address">
+                        <h4>Postal Address</h4>
+                        <p>c/o Kedgley Intermediate School<br>PO Box 86065<br>Mangere East<br>Auckland 2158</p>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3>Send a Message</h3>
+                    <form>
+                        <div class="form-group"><label for="name">Your Name *</label><input type="text" id="name" name="name" required></div>
+                        <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" required></div>
+                        <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone"></div>
+                        <div class="form-group"><label for="message">Your Message *</label><textarea id="message" name="message" required></textarea></div>
+                        <button type="submit" class="btn btn-primary form-submit">Send Message →</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-logo"><img src="https://sbm.org.nz/wp-content/themes/sbma/images/logo.svg" alt="SBM Logo"></div>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#membership">Membership</a></li>
+                    <li><a href="#team">Our People</a></li>
+                    <li><a href="#conference">Conference</a></li>
+                    <li><a href="#sponsors">Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://sbm.org.nz/wp-content/uploads/2025/09/SBM-Constitution-2025.pdf" target="_blank">Constitution</a></li>
+                    <li><a href="https://sbm.org.nz/wp-content/uploads/2024/03/Code-of-Ethics.pdf" target="_blank">Code of Ethics</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 School Business Managers' Association. All Rights Reserved.</p>
+                <p>The professional body of choice for school business leaders.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
