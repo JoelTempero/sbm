@@ -33,7 +33,7 @@ export default function Header() {
           <img
             src="https://sbm.org.nz/wp-content/themes/sbma/images/logo.svg"
             alt="SBM Logo"
-            className="h-12"
+            className="h-24"
           />
         </Link>
 
