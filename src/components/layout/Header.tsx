@@ -28,7 +28,7 @@ export default function Header() {
           : 'bg-white/95 backdrop-blur-xl'
       } border-b border-border`}
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex justify-between items-center h-20">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 flex justify-between items-center h-28">
         <Link to="/" className="flex items-center gap-3">
           <img
             src="https://sbm.org.nz/wp-content/themes/sbma/images/logo.svg"

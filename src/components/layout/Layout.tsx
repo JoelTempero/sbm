@@ -16,7 +16,7 @@ export default function Layout() {
         Skip to main content
       </a>
       <Header />
-      <main id="main-content" className="flex-1 pt-20">
+      <main id="main-content" className="flex-1 pt-28">
         <Outlet />
       </main>
       <Footer />
