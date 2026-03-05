@@ -22,7 +22,7 @@ import NotFound from './pages/NotFound'
 export default function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/sbm">
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
